@@ -72,9 +72,11 @@ console.log("-----------------------  Q7  ---------------------------------");
 
 
 const sameTypeOrNot = myArray => {
-     for (let i; i < myArray.length; i++) {
-        if (typeof myArray[i] === typeof myArray[i]) {
+     for (let i = 0; i < myArray.length - 1; i++) {
+        if (typeof myArray[i] === typeof myArray[i+1]) {
             return true;
+        } else {
+            return false;
         }
     }
 }
@@ -85,7 +87,7 @@ const notSame = ["tomato", 44, "lemon"];
 console.log(sameTypeOrNot(allSame));
 console.log(sameTypeOrNot(notSame));
 
-// WRONGGGGGGGGGGGG... why doesnt it work ??
+// didnt work before as i was not doing .length - 1, and myArray[i + 1] ...... need to understand these concepts better
 
 console.log("----------------------  Q8  ----------------------------------");
 
@@ -115,14 +117,15 @@ console.log("------------------------ Q10 --------------------------------");
 // 10. Write and test a function that takes in two parameters (min and max). That function should return another function that doesn't take in any parameters, but returns a random number between min and max. Effectively your "outer" function is a factory that creates customized random number generator functions.
 
 function minAndMax(min, max) {
-    let = randomNum = Math.round(Math.random());
-
     function something() {
-        return minAndMax(Math.random());
-    }    
+        return Math.random() * (max - min) + min;
+    }  
+    return something();  
 }
 
 console.log(minAndMax(2, 10));
+
+// i was forgetting to call the "something " function!!!!
 
 
 console.log("------------------------  Q11 --------------------------------");
